@@ -1,0 +1,37 @@
+7. Listar todos os indivíduos de uma determinada religião
+
+import json
+
+file = open('dataset.json', encoding= 'UTF8')
+pessoas = json.load(file)
+
+def listar_religiao(datasetjson,religiaoescolhida):
+    listapessoas = []
+    for pessoa in datasetjson['pessoas']:
+        if 'religiao' in pessoa:
+            if religiaoescolhida == pessoa['religiao']:
+                listapessoas.append(pessoa)
+            
+    return listapessoas
+
+listar_religiao(pessoas, 'Zoroastrismo')
+
+8. Listar todos os indivíduos que gostam de um determinado animal
+
+import json
+
+file = open('dataset.json', encoding= 'UTF8')
+pessoas = json.load(file)
+
+def listar_animais(datasetjson,animalescolhido):
+    
+    listapessoas=[]
+    dataset = ler_dataset(datasetjson)
+    for pessoa in dataset:
+            if animalescolhido in pessoa['animais'] :
+                listapessoas.append(pessoa)
+    
+                
+    return listapessoas
+
+listar_animais('dataset.json', 'Dugongo')
